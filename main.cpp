@@ -5,12 +5,17 @@
 
 
 int main() {
-    Person p = Person("Jakub Gniecki", 2001);
-    Worker w = Worker("Jerzy Nowak", 1999, 3050.43);
-    Manager m = Manager("Mateusz Morawiecki", 1970, 19500.50, "Minister");
-    std::cout << p << std::endl;
-    std::cout << w << std::endl;
-    std::cout << m << std::endl;
+    Person **persons = new Person*[3];
+    persons[0] = new Person("Jakub Gniecki", 2001);
+    persons[1] = new Worker("Jerzy Nowak", 1999, 3050.43);
+    persons[2] = new Manager("Mateusz Morawiecki", 1970, 19500.50, "Minister");
+    for (int i = 0; i < 3; ++i) {
+        std::cout << *persons[i] << std::endl;
+        delete persons[i];
+    }
+
+    delete[] persons;
+
     return 0;
 }
 

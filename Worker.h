@@ -10,8 +10,9 @@ protected:
     double salary;
 
 public:
-    Worker(const string &name, int year, double _salary);
-    void print(ostream& os) const;
+    explicit Worker(const string &name, int year, double _salary);
+    void print(ostream& os) const override;
+    ~Worker() override = default;
     double get_salary() const;
 };
 

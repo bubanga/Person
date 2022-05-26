@@ -10,8 +10,9 @@ protected:
     int year_of_birth;
 
 public:
-    Person(const string& _name, int _year);
+    explicit Person(const string& _name, int _year);
     virtual void print(ostream& os) const;
+    virtual ~Person() = default;
 };
 
 ostream& operator<<(ostream& os, const Person& o);
